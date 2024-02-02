@@ -9,6 +9,8 @@ nav_order: 1
 
 <b>Apache Nifi processor name:</b> <i>```ArchiveFileOutProcessor```</i>
 
+<br>
+
 ![Alt text](image-2.png)
 
 The LDIO File Out is used to write models to files based on a timestamp path property on the model.

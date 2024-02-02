@@ -1,6 +1,6 @@
 ---
 layout: default
-parent: Apache Nifi processors
+parent: Apache Nifi SPARQL Select Processors
 title: SPARQL Construct
 ---
 
@@ -8,7 +8,20 @@ title: SPARQL Construct
 
 <b>Apache Nifi processor name:</b> <i>``SparqlSelectProcessor```</i>
 
+<br>
+
 ![Alt text](image.png)
+
+```mermaid
+graph LR
+    L[LDES member] --> H[SPARQL select processor]
+    H --> S[filtered LDES member]
+
+    subgraph Apache Nifi pipeline
+    H
+    end
+```
+
 
 ## Config
 

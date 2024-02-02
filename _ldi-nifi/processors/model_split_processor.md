@@ -6,6 +6,8 @@ title: Model Split Processor
 
 # Apache Nifi Model Split Processor
 
+<br>
+
 ![Alt text](image-7.png)
 
 

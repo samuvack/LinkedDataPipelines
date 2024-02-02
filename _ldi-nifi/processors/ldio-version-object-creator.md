@@ -8,6 +8,8 @@ title: Version Object Creator
 
 <b>Apache Nifi processor name:</b> <i>``VersionObjectCreatorProcessor```</i>
 
+<br>
+
 ![Alt text](image-6.png)
 
 The Version Object Creator will transform a State Object to a Version Object.

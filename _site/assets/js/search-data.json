@@ -519,7 +519,7 @@
   },"74": {
     "doc": "LDES Client",
     "title": "Example",
-    "content": "- name: client-pipeline description: \"Requests all existing members from a public LDES server and keeps following it for changes, sending each member as-is to a webhook\" input: name: be.vlaanderen.informatievlaanderen.ldes.ldi.client.LdioLdesClient config: url: ${LDES_SERVER_URL} sourceFormat: application/n-quads state: false keep-state: false timestamp-path: https://www.w3.org/ns/prov#generatedAtTime . ",
+    "content": "- name: client-pipeline description: \"Requests all existing members from a public LDES server and keeps following it for changes, sending each member as-is to a webhook\" input: name: be.vlaanderen.informatievlaanderen.ldes.ldi.client.LdioLdesClient config: url: ${LDES_SERVER_URL} sourceFormat: application/n-quads state: false keep-state: false timestamp-path: https://www.w3.org/ns/prov#generatedAtTime . input: name: be.vlaanderen.informatievlaanderen.ldes.ldi.client.LdioLdesClient config: url: http://localhost:8080/my-ldes sourceFormat: text/turtle retries: enabled: true auth: type: OAUTH2_CLIENT_CREDENTIALS client-id: clientId client-secret: secret token-endpoint: http://localhost:8000/token . input: name: be.vlaanderen.informatievlaanderen.ldes.ldi.client.LdioLdesClient config: url: http://localhost:8080/my-ldes sourceFormat: text/turtle retries: enabled: true state: postgres postgres: url: jdbc:postgresql://test.postgres.database.azure.com:5432/sample username: myUsername@test password: myPassword . ",
     "url": "/ldio/ldio-inputs/ldio-ldes-client#example",
     
     "relUrl": "/ldio/ldio-inputs/ldio-ldes-client#example"
@@ -531,874 +531,867 @@
     
     "relUrl": "/ldio/ldio-inputs/ldio-ldes-client#config-options"
   },"76": {
-    "doc": "LDES Client",
-    "title": "Examples",
-    "content": "input: name: be.vlaanderen.informatievlaanderen.ldes.ldi.client.LdioLdesClient config: url: http://localhost:8080/my-ldes sourceFormat: text/turtle retries: enabled: true auth: type: OAUTH2_CLIENT_CREDENTIALS client-id: clientId client-secret: secret token-endpoint: http://localhost:8000/token . input: name: be.vlaanderen.informatievlaanderen.ldes.ldi.client.LdioLdesClient config: url: http://localhost:8080/my-ldes sourceFormat: text/turtle retries: enabled: true state: postgres postgres: url: jdbc:postgresql://test.postgres.database.azure.com:5432/sample username: myUsername@test password: myPassword . ",
-    "url": "/ldio/ldio-inputs/ldio-ldes-client#examples",
-    
-    "relUrl": "/ldio/ldio-inputs/ldio-ldes-client#examples"
-  },"77": {
     "doc": "LD Pipeline Outputs",
     "title": "Linked Data Adapters",
     "content": "The LDI Core module contains the components maintained by the VSDS team in order to accommodate the onboarding of LDES onboarders. Each component can be wrapped in a desired implementation framework (LDI-orchestrator, NiFi, …) to be used. ",
     "url": "/ldio/ldio-outputs/index#linked-data-adapters",
     
     "relUrl": "/ldio/ldio-outputs/index#linked-data-adapters"
-  },"78": {
+  },"77": {
     "doc": "LD Pipeline Outputs",
     "title": "LD Pipeline Outputs",
     "content": " ",
     "url": "/ldio/ldio-outputs/index",
     
     "relUrl": "/ldio/ldio-outputs/index"
-  },"79": {
+  },"78": {
     "doc": "Azure Blob Out",
     "title": "LDIO Azure Blob Out",
     "content": "LD Pipeline Component Name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdiAzureBlobOut . The LDIO Azure Blob Out writes out messages to an Azure Blob Container. Messages can be written in any format supported by Apache Jena or in JSON format. {.warning} For the json format it is necessary to have a URI which holds the context. graph LR LDES --&gt; C[Client] C --&gt; H[LDIO Azure Blob Out Component] H --&gt; S[KAzure Blob Container] subgraph LDIO output pipeline C H end . ",
     "url": "/ldio/ldio-outputs/ldio-azure-blob-out#ldio-azure-blob-out",
     
     "relUrl": "/ldio/ldio-outputs/ldio-azure-blob-out#ldio-azure-blob-out"
-  },"80": {
+  },"79": {
     "doc": "Azure Blob Out",
     "title": "Example",
     "content": "JSON . outputs: - name: \"be.vlaanderen.informatievlaanderen.ldes.ldio.LdiAzureBlobOut\" config: lang: \"json\" storage-account-name: \"storageaccount\" connection-string: \"DefaultEndpointsProtocol=https;AccountName=demopowerquery;AccountKey=...;EndpointSuffix=core.windows.net\" blob-container: \"blobcontainer\" json-context-uri: \"https://essentialcomplexity.eu/gipod.jsonld\" . N-QUADS . outputs: - name: \"be.vlaanderen.informatievlaanderen.ldes.ldio.LdiAzureBlobOut\" config: lang: \"n-quads\" storage-account-name: \"storageaccount\" connection-string: \"DefaultEndpointsProtocol=https;AccountName=demopowerquery;AccountKey=...;EndpointSuffix=core.windows.net\" blob-container: \"blobcontainer\" . ",
     "url": "/ldio/ldio-outputs/ldio-azure-blob-out#example",
     
     "relUrl": "/ldio/ldio-outputs/ldio-azure-blob-out#example"
-  },"81": {
+  },"80": {
     "doc": "Azure Blob Out",
     "title": "Config options",
     "content": "| Property | Description | Required | Default | Example | Supported values | . | lang | Json* and any lang supported by Apache Jena. *json requires the json-context-uri property | No | n-quads | json | json, jsonld, turtle, n-triples, n-quads, … | . | storage-account-name | Name of the Azure Storage Account | Yes | N/A | saldesclientdemo | String | . | connection-string | Value of the Connection String of the Azure Storage Account | Yes | N/A | DefaultEndpointsProtocol=https;AccountName=demopowerquery;AccountKey=…;EndpointSuffix=core.windows.net | Azure Connection String | . | blob-container | Name of the Blob Container | Yes | N/A | data | String | . | json-context-uri | URI which holds the Json Context | No | ”” | https://private-api.gipod.beta-vlaanderen.be/api/v1/context/gipod.jsonld | URI describing context | . ",
     "url": "/ldio/ldio-outputs/ldio-azure-blob-out#config-options",
     
     "relUrl": "/ldio/ldio-outputs/ldio-azure-blob-out#config-options"
-  },"82": {
+  },"81": {
     "doc": "Azure Blob Out",
     "title": "Azure Blob Out",
     "content": " ",
     "url": "/ldio/ldio-outputs/ldio-azure-blob-out",
     
     "relUrl": "/ldio/ldio-outputs/ldio-azure-blob-out"
-  },"83": {
+  },"82": {
     "doc": "Console Out",
     "title": "LDIO Console Out",
     "content": "LD Pipeline Component Name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioConsoleOut . The LDIO Console Out will output its given model to the console. ",
     "url": "/ldio/ldio-outputs/ldio-console-out#ldio-console-out",
     
     "relUrl": "/ldio/ldio-outputs/ldio-console-out#ldio-console-out"
-  },"84": {
+  },"83": {
     "doc": "Console Out",
     "title": "Example",
     "content": "orchestrator: pipelines: - name: example output: name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioConsoleOut config: rdf-writer: N/A . ",
     "url": "/ldio/ldio-outputs/ldio-console-out#example",
     
     "relUrl": "/ldio/ldio-outputs/ldio-console-out#example"
-  },"85": {
+  },"84": {
     "doc": "Console Out",
     "title": "Config options",
     "content": "| Property | Description | Required | Default | Example | Supported values | . | rdf-writer | LDI RDF Writer Config | No | Empty Config | N/A | LDI RDF Writer Config | . ",
     "url": "/ldio/ldio-outputs/ldio-console-out#config-options",
     
     "relUrl": "/ldio/ldio-outputs/ldio-console-out#config-options"
-  },"86": {
+  },"85": {
     "doc": "Console Out",
     "title": "Console Out",
     "content": " ",
     "url": "/ldio/ldio-outputs/ldio-console-out",
     
     "relUrl": "/ldio/ldio-outputs/ldio-console-out"
-  },"87": {
+  },"86": {
     "doc": "File Out",
     "title": "LDIO File Out",
     "content": "LD Pipeline Component Name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioFileOut . The LDIO File Out is used to write models to files based on a timestamp path property on the model. Please refer to the core documentation for more information. graph LR LDES --&gt; C[Client] C --&gt; H[LDIO file out] H --&gt; S[archive-root-dir] subgraph LDIO output pipeline file out C H end . ",
     "url": "/ldio/ldio-outputs/ldio-file-out#ldio-file-out",
     
     "relUrl": "/ldio/ldio-outputs/ldio-file-out#ldio-file-out"
-  },"88": {
+  },"87": {
     "doc": "File Out",
     "title": "Example",
     "content": "- name: client-pipeline description: \"Requests all existing members from a public LDES server and keeps following it for changes, sending each member as-is to a webhook\" input: name: be.vlaanderen.informatievlaanderen.ldes.ldi.client.LdioLdesClient config: url: ${LDES_SERVER_URL} sourceFormat: application/n-quads outputs: - name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioHttpOut config: endpoint: ${SINK_URL} rate-limit: enabled: true max-requests-per-minute: ${MAX_REQUESTS_PER_MINUTE} . ",
     "url": "/ldio/ldio-outputs/ldio-file-out#example",
     
     "relUrl": "/ldio/ldio-outputs/ldio-file-out#example"
-  },"89": {
+  },"88": {
     "doc": "File Out",
     "title": "Config options",
     "content": "| Property | Description | Required | Default | Example | Supported values | . | archive-root-dir | The root directory where files are written to | Yes | N/A | /parcels/archive | Linux (+ Mac) and Windows paths | . | timestamp-path | The timestamp path used for naming the | Yes | N/A | http://www.w3.org/ns/prov#generatedAtTime | Any valid LD predicate | . ",
     "url": "/ldio/ldio-outputs/ldio-file-out#config-options",
     
     "relUrl": "/ldio/ldio-outputs/ldio-file-out#config-options"
-  },"90": {
+  },"89": {
     "doc": "File Out",
     "title": "File Out",
     "content": " ",
     "url": "/ldio/ldio-outputs/ldio-file-out",
     
     "relUrl": "/ldio/ldio-outputs/ldio-file-out"
-  },"91": {
+  },"90": {
     "doc": "HTTP Out",
     "title": "LDIO HTTP Out",
     "content": "LD Pipeline Component Name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioHttpOut . The LDIO HTTP Out is a basic Http Client that will send the given Linked Data model to a target url. This pipeline component is responsible for sending harvested LDES members to an external destination (url) using the HTTP (Hypertext Transfer Protocol). HTTP is the foundational protocol used for transmitting data over the internet, primarily used for loading web pages in a browser, but it’s also widely utilized in various other types of network communication. graph LR LDES --&gt; C[Client] C --&gt; H[LDIO HTTP out] H --&gt; S[url] subgraph LDIO output pipeline C H end . ",
     "url": "/ldio/ldio-outputs/ldio-http-out#ldio-http-out",
     
     "relUrl": "/ldio/ldio-outputs/ldio-http-out#ldio-http-out"
-  },"92": {
+  },"91": {
     "doc": "HTTP Out",
     "title": "Example",
     "content": "- name: client-pipeline description: \"Requests all existing members from a public LDES server and keeps following it for changes, sending each member as-is to a webhook\" input: name: be.vlaanderen.informatievlaanderen.ldes.ldi.client.LdioLdesClient config: url: ${LDES_SERVER_URL} sourceFormat: application/n-quads outputs: - name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioHttpOut config: endpoint: ${SINK_URL} rate-limit: enabled: true max-requests-per-minute: ${MAX_REQUESTS_PER_MINUTE} . ",
     "url": "/ldio/ldio-outputs/ldio-http-out#example",
     
     "relUrl": "/ldio/ldio-outputs/ldio-http-out#example"
-  },"93": {
+  },"92": {
     "doc": "HTTP Out",
     "title": "Config options",
     "content": "| Property | Description | Required | Default | Example | Supported values | . | endpoint | Target url. | Yes | N/A | http://example.com/endpoint | HTTP and HTTPS urls | . | rdf-writer | LDI RDF Writer Config | No | Empty Config | N/A | LDI RDF Writer Config | . ",
     "url": "/ldio/ldio-outputs/ldio-http-out#config-options",
     
     "relUrl": "/ldio/ldio-outputs/ldio-http-out#config-options"
-  },"94": {
+  },"93": {
     "doc": "HTTP Out",
     "title": "HTTP Out",
     "content": " ",
     "url": "/ldio/ldio-outputs/ldio-http-out",
     
     "relUrl": "/ldio/ldio-outputs/ldio-http-out"
-  },"95": {
+  },"94": {
     "doc": "Kafka Out",
     "title": "LDIO Kafka Out",
     "content": "LD Pipeline Component Name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioKafkaOut . The LDIO Kafka Out sends messages to a kafka topic. graph LR LDES --&gt; C[Client] C --&gt; H[LDIO Kafka Out Component] H --&gt; S[Kafka topic] subgraph LDIO output pipeline C H end . ",
     "url": "/ldio/ldio-outputs/ldio-kafka-out#ldio-kafka-out",
     
     "relUrl": "/ldio/ldio-outputs/ldio-kafka-out#ldio-kafka-out"
-  },"96": {
+  },"95": {
     "doc": "Kafka Out",
     "title": "Example",
     "content": "Two security protocols are supported: . NO SECURITY . outputs: - name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioKafkaOut config: bootstrap-servers: localhost:9092 topic: quickstart-events key-property-path: &lt;https://purl.org/geojson/vocab#properties&gt;/&lt;http://purl.org/dc/terms/title&gt; . SASL SSL PLAIN . outputs: - name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioKafkaOut config: bootstrap-servers: localhost:9092 topic: quickstart-events key-property-path: &lt;https://purl.org/geojson/vocab#properties&gt;/&lt;http://purl.org/dc/terms/title&gt; security-protocol: SASL_SSL_PLAIN sasl-jaas-user: client sasl-jaas-password: client-secret . ",
     "url": "/ldio/ldio-outputs/ldio-kafka-out#example",
     
     "relUrl": "/ldio/ldio-outputs/ldio-kafka-out#example"
-  },"97": {
+  },"96": {
     "doc": "Kafka Out",
     "title": "Config",
     "content": "| Property | Description | Required | Default | Example | Supported values | . | bootstrap-servers | Comma separated list of uris of the bootstrap servers | Yes | N/A | localhost:9012 | url | . | topic | Name of the topic | Yes | N/A | quickstart-events | String | . | key-property-path | Optional property path to extract the kafka key from the data model | No | null | http://purl.org/dc/terms/title | ARQ property path | . | security-protocol | Security protocol to be used to connect to the kafka broker | No | NO_AUTH | SASL_SSL_PLAIN | SASL_SSL_PLAIN or NO_AUTH | . | sasl-jaas-user | Username used in the security protocol | No | null | client | String | . | sasl-jaas-password | Password used in the security protocol | No | null | secret | String | . | frame-type | RDF type of the objects that need to be included for JSON-LD framing. | No | N/A | http://purl.org/goodrelations/v1#Offering | Any RDF type | . | rdf-writer | LDI RDF Writer Config | No | Empty Config | N/A | LDI RDF Writer Config | . bootstrap-servers: This is a list of host/port pairs used for establishing the initial connection to the Kafka cluster. For example, “host1:port1,host2:port2,…”. It’s the primary point of contact for a Kafka client and used to discover the full set of servers in the cluster. It is essential for the client to connect and perform operations in the Kafka environment. topic: This refers to the name of the Kafka topic to which the client will produce or consume messages. Topics in Kafka are the categories or feed names where records are published. Each topic is split into partitions for scalability and redundancy. key-property-path: In Kafka message structure, each record consists of a key, a value, and a timestamp. The key-property-path specifies the path to the property within the message payload that will be used as the key. Keys are important for partitioning in Kafka; records with the same key are sent to the same partition. security-protocol: This parameter defines the protocol used to communicate with Kafka brokers. Common values are PLAINTEXT for unencrypted communication, SSL for encrypted communication, SASL_PLAINTEXT for authenticated communication over unencrypted channel, and SASL_SSL for authenticated communication over an encrypted channel. sasl-jaas-user and sasl-jaas-password: These are used for SASL/PLAIN authentication. sasl-jaas-user is the username and sasl-jaas-password is the corresponding password. JAAS (Java Authentication and Authorization Service) provides a way for a Java application to authenticate and authorize a specific user or group of users to run it. frame-type: This parameter is often used in the context of LDES (Linked Data Event Stream) and refers to the way data is structured or framed before it is sent to Kafka. It determines the format or structure of the data encapsulation in the Kafka message. rdf-writer: This is relevant in scenarios where RDF (Resource Description Framework) data is being produced to or consumed from Kafka. The rdf-writer parameter specifies the format in which RDF data is serialized before it is published to a Kafka topic. Common RDF serialization formats include Turtle, N-Triples, RDF/XML, and JSON-LD. ",
     "url": "/ldio/ldio-outputs/ldio-kafka-out#config",
     
     "relUrl": "/ldio/ldio-outputs/ldio-kafka-out#config"
-  },"98": {
+  },"97": {
     "doc": "Kafka Out",
     "title": "Kafka Out",
     "content": " ",
     "url": "/ldio/ldio-outputs/ldio-kafka-out",
     
     "relUrl": "/ldio/ldio-outputs/ldio-kafka-out"
-  },"99": {
+  },"98": {
     "doc": "Repository Materialization",
     "title": "Repository Materialiser",
     "content": "LD Pipeline Component Name: be.vlaanderen.informatievlaanderen.ldes.ldi.RepositoryMaterialiser . The repository materialiser is used to materialise an LDES stream into a triplestore. Any triplestore that supports the RDF4J remote repository API can be used. The Repository Materializer is a LD Pipeline component designed to efficiently transform an LDES (Linked Data Event Stream) member into a format suitable for storage and query within a triplestore. This tool is adaptable and can interface with any triplestore that is compatible with the RDF4J remote repository API. By leveraging this API, the materializer seamlessly integrates with the triplestore, ensuring that the LDES stream is accurately and efficiently converted into a triplestore-friendly format. graph LR LDES --&gt; C[Client] C --&gt; H[LDIO Repository Materialiser] H --&gt; S[Triplestore] subgraph LDIO output pipeline C H end . ",
     "url": "/ldio/ldio-outputs/ldio-repository-materialiser#repository-materialiser",
     
     "relUrl": "/ldio/ldio-outputs/ldio-repository-materialiser#repository-materialiser"
-  },"100": {
+  },"99": {
     "doc": "Repository Materialization",
     "title": "Example",
     "content": "orchestrator: pipelines: - name: example output: name: be.vlaanderen.informatievlaanderen.ldes.ldi.RepositoryMaterialiser config: sparql-host: http://repositoryServer repository-id: repoId named-graph: http://name . ",
     "url": "/ldio/ldio-outputs/ldio-repository-materialiser#example",
     
     "relUrl": "/ldio/ldio-outputs/ldio-repository-materialiser#example"
-  },"101": {
+  },"100": {
     "doc": "Repository Materialization",
     "title": "Config",
     "content": "| Property | Description | Required | Default | Example | Supported values | . | sparql-host | The url of the server hosting the repository | Yes | N/A | http://repositoryServer | URL | . | repository-id | The rdf4j repository id | Yes | N/A | repoId | String | . | named-graph | The timestamp path used for naming the | No | N/A | http://name | Any valid LD subject name | . repository-id: This option specifies the unique identifier for the repository within the triplestore where the LDES stream will be materialized. It acts as a primary reference point for the tool to target the correct data storage and retrieval repository. sparql-host: This parameter defines the host URL of the SPARQL endpoint. It’s crucial for establishing a connection to the triplestore, enabling the tool to send SPARQL queries and updates directly to the specified endpoint. This host setting ensures that the materializer communicates with the correct triplestore instance over the network. named-graph: This configuration option allows users to specify a particular named graph within the triplestore where the LDES data will be stored. Named graphs are a feature of SPARQL that enable storing and querying data in separate graph contexts within the same repository. This option provides flexibility and better organization of data by allowing the segregation of different LDES streams into distinct graph entities within the triplestore.” . ",
     "url": "/ldio/ldio-outputs/ldio-repository-materialiser#config",
     
     "relUrl": "/ldio/ldio-outputs/ldio-repository-materialiser#config"
-  },"102": {
+  },"101": {
     "doc": "Repository Materialization",
     "title": "Repository Materialization",
     "content": " ",
     "url": "/ldio/ldio-outputs/ldio-repository-materialiser",
     
     "relUrl": "/ldio/ldio-outputs/ldio-repository-materialiser"
-  },"103": {
+  },"102": {
     "doc": "LD Pipeline Transformers",
     "title": "Linked Data Transformers",
     "content": "The LDI Core module contains the components maintained by the VSDS team in order to accommodate the onboarding of LDES onboarders. Each component can be wrapped in a desired implementation framework (LDI-orchestrator, NiFi, …) to be used. ",
     "url": "/ldio/ldio-transformers/index#linked-data-transformers",
     
     "relUrl": "/ldio/ldio-transformers/index#linked-data-transformers"
-  },"104": {
+  },"103": {
     "doc": "LD Pipeline Transformers",
     "title": "LD Pipeline Transformers",
     "content": " ",
     "url": "/ldio/ldio-transformers/index",
     
     "relUrl": "/ldio/ldio-transformers/index"
-  },"105": {
+  },"104": {
     "doc": "GeoJson To WKT Transformer",
     "title": "LDIO GeoJson To WKT Transformer",
     "content": "LD Pipeline Component Name: be.vlaanderen.informatievlaanderen.ldes.ldi.GeoJsonToWktTransformer . The GeoJson to Wkt Transformer will transform any GeoJson statements (with predicate https://purl.org/geojson/vocab#geometry) to a wkt string. graph LR L[GeoJson] --&gt; H[GeoJson To WKT Transformer] H --&gt; S[WKT] subgraph LDIO transformer pipeline H end . ",
     "url": "/ldio/ldio-transformers/ldio-geojson-to-wkt#ldio-geojson-to-wkt-transformer",
     
     "relUrl": "/ldio/ldio-transformers/ldio-geojson-to-wkt#ldio-geojson-to-wkt-transformer"
-  },"106": {
+  },"105": {
     "doc": "GeoJson To WKT Transformer",
     "title": "Example",
     "content": "- name: example description: \"\" transformer: - name: be.vlaanderen.informatievlaanderen.ldes.ldi.GeoJsonToWktTransformer . ",
     "url": "/ldio/ldio-transformers/ldio-geojson-to-wkt#example",
     
     "relUrl": "/ldio/ldio-transformers/ldio-geojson-to-wkt#example"
-  },"107": {
+  },"106": {
     "doc": "GeoJson To WKT Transformer",
     "title": "Config",
     "content": "This component has no required config . ",
     "url": "/ldio/ldio-transformers/ldio-geojson-to-wkt#config",
     
     "relUrl": "/ldio/ldio-transformers/ldio-geojson-to-wkt#config"
-  },"108": {
+  },"107": {
     "doc": "GeoJson To WKT Transformer",
     "title": "GeoJson To WKT Transformer",
     "content": " ",
     "url": "/ldio/ldio-transformers/ldio-geojson-to-wkt",
     
     "relUrl": "/ldio/ldio-transformers/ldio-geojson-to-wkt"
-  },"109": {
+  },"108": {
     "doc": "Http Enricher Transformer",
     "title": "LDIO Http Enricher",
     "content": "LD Pipeline Component Name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioHttpEnricher . A transformer that allows sending a GET or POST HTTP request to a dynamic URL provided by the model. The response is converted to linked data and added to the incoming model. graph LR L[GET/POST] --&gt; H[Http Enricher] H --&gt; S[Linked Data response] subgraph LDIO transformer pipeline H end . ",
     "url": "/ldio/ldio-transformers/ldio-http-enricher#ldio-http-enricher",
     
     "relUrl": "/ldio/ldio-transformers/ldio-http-enricher#ldio-http-enricher"
-  },"110": {
+  },"109": {
     "doc": "Http Enricher Transformer",
     "title": "Example",
     "content": "- name: example description: \"\" transformer: - name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioHttpEnricher config: adapter.name: be.vlaanderen.informatievlaanderen.ldes.ldi.RdfAdapter url-property-path: http://example.org/url . This example contains a JsonToLdAdapter which needs “core-context” as config. At the bottom there is also “auth” config provided for the request executor. - name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioHttpEnricher config: adapter: name: be.vlaanderen.informatievlaanderen.ldes.ldi.JsonToLdAdapter config: core-context: file:///ldio/jsonld/observation.jsonld url-property-path: &lt;http://example.org/url&gt; header-property-path: &lt;http://example.org/meta&gt;/&lt;http://example.org/headers&gt; body-property-path: &lt;http://example.org/meta&gt;/&lt;http://example.org/body&gt; http-method-property-path: &lt;http://example.org/meta&gt;/&lt;http://example.org/method&gt; auth: type: API_KEY api-key: my-secret api-key-header: x-api-key . ",
     "url": "/ldio/ldio-transformers/ldio-http-enricher#example",
     
     "relUrl": "/ldio/ldio-transformers/ldio-http-enricher#example"
-  },"111": {
+  },"110": {
     "doc": "Http Enricher Transformer",
     "title": "Config options",
     "content": "| Property | Description | Required | Default | Example | Supported values | . | adapter.name | This transformer requires an ldio-adapter to convert the responses to linked data. | Yes | N/A | be.vlaanderen.informatievlaanderen.ldes.ldi.RdfAdapter | Paths of supported LD Pipeline Adapters | . | adapter.config.xxx | Optional config that may be required by the adapter | No | N/A | be.vlaanderen.informatievlaanderen.ldes.ldi.RdfAdapter | Paths of supported LD Pipeline Adapters | . | url-property-path | Path defining the url that needs to be selected on the model for the http request. | Yes | N/A | http://example.org/url | Valid property paths | . | header-property-path | Path defining the headers that needs to be selected on the model for the http request. | No | N/A | http://example.org/header | Valid property paths | . | body-property-path | Path defining the body that needs to be selected on the model to be added when a POST http request is used. | No | N/A | http://example.org/meta/http://example.org/body | Valid property paths | . | http-method-property-path | Path defining the http method that needs to be selected on the model for the http request. | No | GET | GET | GET or POST | . | auth.xxx retries.xxx rate-limit.xxx | LDIO Http Requester Config | No | N/A | N/A | LDIO Http Requester Config | . Note that all adapters are supported. When the adapter requires additional config, this can be added as seen below in the example. ",
     "url": "/ldio/ldio-transformers/ldio-http-enricher#config-options",
     
     "relUrl": "/ldio/ldio-transformers/ldio-http-enricher#config-options"
-  },"112": {
+  },"111": {
     "doc": "Http Enricher Transformer",
     "title": "Http Enricher Transformer",
     "content": " ",
     "url": "/ldio/ldio-transformers/ldio-http-enricher",
     
     "relUrl": "/ldio/ldio-transformers/ldio-http-enricher"
-  },"113": {
+  },"112": {
     "doc": "SPARQL Construct",
     "title": "LDIO SPARQL Construct",
     "content": "LD Pipeline Component Name: be.vlaanderen.informatievlaanderen.ldes.ldi.SparqlConstructTransformer . An LDIO wrapper component for the LDI SPARQL Construct building block . ",
     "url": "/ldio/ldio-transformers/ldio-sparql-construct#ldio-sparql-construct",
     
     "relUrl": "/ldio/ldio-transformers/ldio-sparql-construct#ldio-sparql-construct"
-  },"114": {
+  },"113": {
     "doc": "SPARQL Construct",
     "title": "Config",
     "content": "| Property | Description | Required | Default | Example | Supported values | . | query | Path to content of SPARQL Query/content of SPARQL query. | Yes | N/A | query.rq | Path/String | . | infer | Include original model in end result. | No | false | false | true or false | . ",
     "url": "/ldio/ldio-transformers/ldio-sparql-construct#config",
     
     "relUrl": "/ldio/ldio-transformers/ldio-sparql-construct#config"
-  },"115": {
+  },"114": {
     "doc": "SPARQL Construct",
     "title": "SPARQL Construct",
     "content": " ",
     "url": "/ldio/ldio-transformers/ldio-sparql-construct",
     
     "relUrl": "/ldio/ldio-transformers/ldio-sparql-construct"
-  },"116": {
+  },"115": {
     "doc": "Version Materializer",
     "title": "LDIO Version Materializer",
     "content": "LD Pipeline Component Name: be.vlaanderen.informatievlaanderen.ldes.ldi.VersionMaterialiser . The Version Materializer will transform a Version Object into a State Object. graph LR L[version objects] --&gt; H[Version Materializer] H --&gt; S[state objects] subgraph LDIO transformer pipeline H end . ",
     "url": "/ldio/ldio-transformers/ldio-version-materializer#ldio-version-materializer",
     
     "relUrl": "/ldio/ldio-transformers/ldio-version-materializer#ldio-version-materializer"
-  },"117": {
+  },"116": {
     "doc": "Version Materializer",
     "title": "Example",
     "content": "- name: example description: \"\" transformer: - name: be.vlaanderen.informatievlaanderen.ldes.ldi.VersionMaterialiser config: versionOf-property: http://purl.org/dc/terms/isVersionOf estrict-to-members: false . ",
     "url": "/ldio/ldio-transformers/ldio-version-materializer#example",
     
     "relUrl": "/ldio/ldio-transformers/ldio-version-materializer#example"
-  },"118": {
+  },"117": {
     "doc": "Version Materializer",
     "title": "Config",
     "content": "| Property | Description | Required | Default | Example | Supported values | . | versionOf-property | Property that points to the versionOfPath. | Yes | N/A | “http://purl.org/dc/terms/isVersionOf” | String | . | restrict-to-members | Builds a model limited to statements about the ldes:member, including potential nested blank nodes. Excludes statements about referenced entities, provided as context | No | false | false | true or false | . ",
     "url": "/ldio/ldio-transformers/ldio-version-materializer#config",
     
     "relUrl": "/ldio/ldio-transformers/ldio-version-materializer#config"
-  },"119": {
+  },"118": {
     "doc": "Version Materializer",
     "title": "Version Materializer",
     "content": " ",
     "url": "/ldio/ldio-transformers/ldio-version-materializer",
     
     "relUrl": "/ldio/ldio-transformers/ldio-version-materializer"
-  },"120": {
+  },"119": {
     "doc": "Version Object Creator",
     "title": "LDIO Version Object Creator",
     "content": "LD Pipeline Component Name: be.vlaanderen.informatievlaanderen.ldes.ldi.VersionObjectCreator . The Version Object Creator will transform a State Object into a Version Object. graph LR L[Linked Data state object] --&gt; H[Version Object Creator] H --&gt; S[Version objects] subgraph LDIO transformer pipeline H end . ",
     "url": "/ldio/ldio-transformers/ldio-version-object-creator#ldio-version-object-creator",
     
     "relUrl": "/ldio/ldio-transformers/ldio-version-object-creator#ldio-version-object-creator"
-  },"121": {
+  },"120": {
     "doc": "Version Object Creator",
     "title": "Example",
     "content": "- name: example description: \"\" transformer: - name: be.vlaanderen.informatievlaanderen.ldes.ldi.VersionObjectCreator config: date-observed-property: &lt;https://uri.etsi.org/ngsi-ld/default-context/WaterQualityObserved&gt; member-type: https://uri.etsi.org/ngsi-ld/default-context/Device delimiter: / generatedAt-property: http://www.w3.org/ns/prov#generatedAtTime versionOf-property: http://purl.org/dc/terms/isVersionOf . ",
     "url": "/ldio/ldio-transformers/ldio-version-object-creator#example",
     
     "relUrl": "/ldio/ldio-transformers/ldio-version-object-creator#example"
-  },"122": {
+  },"121": {
     "doc": "Version Object Creator",
     "title": "Config option",
     "content": "| Property | Description | Required | Default | Example | Supported values | . | date-observed-property | Property path (IRI format ‘&lt;&gt;’) that points to a literal which should be used as timestampPath. Defaults to current timestamp. | No | Current Timestamp | https://uri.etsi.org/ngsi-ld/default-context/WaterQualityObserved | String | . | member-type | Defines the RDF type of the version object | No | N/A | https://uri.etsi.org/ngsi-ld/default-context/Device | String | . | delimiter | Defines how the version object id will be constructed. (versionOf + delimiter + dateObserved) | No | / | / | String | . | generatedAt-property | If defined, a statement will be added to the model with the observedAt value and the given property. | No | N/A | http://www.w3.org/ns/prov#generatedAtTime | String | . | versionOf-property | If defined, a statement will be added to the model with the versionOf value and the given property. | No | N/A | http://purl.org/dc/terms/isVersionOf | String | . A property path can be provided for the date-observed-property. For example for the following ttl: . @prefix time: &lt;http://www.w3.org/2006/time#&gt; . @prefix ex: &lt;http://example.org/&gt; . @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; . ex:member a ex:Something ; ex:created [ a time:Instant ; time:inXSDDateTimeStamp \"2023-08-18T13:08:00+01:00\"^^xsd:DateTime ] . You can provide the following date-observed-property: “http://example.org/created/http://www.w3.org/2006/time#inXSDDateTimeStamp” to select “time:inXSDDateTimeStamp” within “ex:created”. ",
     "url": "/ldio/ldio-transformers/ldio-version-object-creator#config-option",
     
     "relUrl": "/ldio/ldio-transformers/ldio-version-object-creator#config-option"
-  },"123": {
+  },"122": {
     "doc": "Version Object Creator",
     "title": "Version Object Creator",
     "content": " ",
     "url": "/ldio/ldio-transformers/ldio-version-object-creator",
     
     "relUrl": "/ldio/ldio-transformers/ldio-version-object-creator"
-  },"124": {
+  },"123": {
     "doc": "Introduction",
     "title": "Introduction",
     "content": "Apache Nifi is an easy-to-use, powerful, and reliable system to process and distribute data. The setup of this Linked Data (LD) Pipeline necessitates the use of Docker, and Apache NiFi. Simply dragging the components into the Apache NiFi environment makes setting up the desired LD workflow possible. The LD Pipeline components can be selected from the library. Directly in Apache NiFi, it delineates the specific LD Pipeline components to be utilized, their sequence, and the operational parameters for each component, ensuring a structured and efficient workflow. ",
     "url": "/ldi-nifi/index",
     
     "relUrl": "/ldi-nifi/index"
-  },"125": {
+  },"124": {
     "doc": "Introduction",
     "title": "Usage",
     "content": "All the following processors can be found in the processor list when using the ldes/ldi-workbench-nifi docker image. These processors can be added by filtering on the ```be.vlaanderen.informatievlaanderen.ldes.ldi.nifi_ group or by filtering on the _vsds*** tag . | Create Version Processor | GeoJson to WKT Processor | Json to Json LD Processor | Ngsi V2 to LD Processor | RDF4j Repository Materialization Processor | SPARQL Interactions Processor | Version Materialization Processor | Archive File Out Processor | Archive File In Processor | . All documentation and notes about configuration are available in the NiFi component itself. ",
     "url": "/ldi-nifi/index#usage",
     
     "relUrl": "/ldi-nifi/index#usage"
-  },"126": {
+  },"125": {
     "doc": "RDF serialisation Processor",
     "title": "Apache Nifi RDF serialisation Processor",
     "content": "Apache Nifi processor name: RDFserialisationProcessor` . ",
     "url": "/ldi-nifi/processors/RDFserialisationProcessor#apache-nifi-rdf-serialisation-processor",
     
     "relUrl": "/ldi-nifi/processors/RDFserialisationProcessor#apache-nifi-rdf-serialisation-processor"
-  },"127": {
+  },"126": {
     "doc": "RDF serialisation Processor",
     "title": "RDF serialisation Processor",
     "content": " ",
     "url": "/ldi-nifi/processors/RDFserialisationProcessor",
     
     "relUrl": "/ldi-nifi/processors/RDFserialisationProcessor"
-  },"128": {
+  },"127": {
     "doc": "Archive File In",
     "title": "Apache Nifi File In",
     "content": "Apache Nifi processor name: ArchiveFileInProcessor . The Archive File In is used to read the models from a file archive created by the Archive File Out component. This component traverses all directories in the archive in lexical order and reads the members in lexical order as well. Example expected structure: . | archive . | 2022 . | 01 . | 01 . | member-1.nq | member-2.nq | … | . | 02 . | member-122.nq | … | . | . | . | . | . ",
     "url": "/ldi-nifi/processors/archive-file-in#apache-nifi-file-in",
     
     "relUrl": "/ldi-nifi/processors/archive-file-in#apache-nifi-file-in"
-  },"129": {
+  },"128": {
     "doc": "Archive File In",
     "title": "Config",
     "content": "| Property | Description | Required | Default | Example | Supported values | . | archive-root-dir | The root directory of the archive | Yes | N/A | /parcels/archive | Linux (+ Mac) and Windows paths | . | source-format | The source format of the files | No | Deduced from file extension | text/turtle | Any Jena supported format | . ",
     "url": "/ldi-nifi/processors/archive-file-in#config",
     
     "relUrl": "/ldi-nifi/processors/archive-file-in#config"
-  },"130": {
+  },"129": {
     "doc": "Archive File In",
     "title": "Example",
     "content": "A complete demo of the archiving functionality with both LDIO and NiFi can be found in the E2E repo . The traversal order is lexical, this means that 1, 2, 3, …, 9 should have leading zeroes. 03 will be read before 10 but 3 will be read after 10. Not all file extensions can be deduced automatically. Extensions like .ttl and .nq work fine and don’t need a source-format specified. When using LD+JSON, you will need to specify the source-format. ",
     "url": "/ldi-nifi/processors/archive-file-in#example",
     
     "relUrl": "/ldi-nifi/processors/archive-file-in#example"
-  },"131": {
+  },"130": {
     "doc": "Archive File In",
     "title": "Archive File In",
     "content": " ",
     "url": "/ldi-nifi/processors/archive-file-in",
     
     "relUrl": "/ldi-nifi/processors/archive-file-in"
-  },"132": {
+  },"131": {
     "doc": "Apache Nifi processors",
     "title": "Apache Nifi processors",
     "content": " ",
     "url": "/ldi-nifi/processors/index",
     
     "relUrl": "/ldi-nifi/processors/index"
-  },"133": {
+  },"132": {
     "doc": "File Out",
     "title": "Apache Nifi File Out",
     "content": "Apache Nifi processor name: ArchiveFileOutProcessor . The LDIO File Out is used to write models to files based on a timestamp path property on the model. Please refer to the core documentation for more information. graph LR LDES --&gt; C[Client] C --&gt; H[LDIO file out] H --&gt; S[archive-root-dir] subgraph LDIO output pipeline file out C H end . ",
     "url": "/ldi-nifi/processors/ldio-file-out#apache-nifi-file-out",
     
     "relUrl": "/ldi-nifi/processors/ldio-file-out#apache-nifi-file-out"
-  },"134": {
+  },"133": {
     "doc": "File Out",
     "title": "Pipeline configuration example",
     "content": "- name: client-pipeline description: \"Requests all existing members from a public LDES server and keeps following it for changes, sending each member as-is to a webhook\" input: name: be.vlaanderen.informatievlaanderen.ldes.ldi.client.LdioLdesClient config: url: ${LDES_SERVER_URL} sourceFormat: application/n-quads outputs: - name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioHttpOut config: endpoint: ${SINK_URL} rate-limit: enabled: true max-requests-per-minute: ${MAX_REQUESTS_PER_MINUTE} . ",
     "url": "/ldi-nifi/processors/ldio-file-out#pipeline-configuration-example",
     
     "relUrl": "/ldi-nifi/processors/ldio-file-out#pipeline-configuration-example"
-  },"135": {
+  },"134": {
     "doc": "File Out",
     "title": "LDIO Config",
     "content": "| Property | Description | Required | Default | Example | Supported values | . | archive-root-dir | The root directory where files are written to | Yes | N/A | /parcels/archive | Linux (+ Mac) and Windows paths | . | timestamp-path | The timestamp path used for naming the | Yes | N/A | http://www.w3.org/ns/prov#generatedAtTime | Any valid LD predicate | . ",
     "url": "/ldi-nifi/processors/ldio-file-out#ldio-config",
     
     "relUrl": "/ldi-nifi/processors/ldio-file-out#ldio-config"
-  },"136": {
+  },"135": {
     "doc": "File Out",
     "title": "File Out",
     "content": " ",
     "url": "/ldi-nifi/processors/ldio-file-out",
     
     "relUrl": "/ldi-nifi/processors/ldio-file-out"
-  },"137": {
+  },"136": {
     "doc": "GeoJson To WKT Transformer",
     "title": "Apache Nifi GeoJson To WKT Transformer",
-    "content": "Apache Nifi processor name: GeoJsonToWKTProcessor . An LDIO wrapper component for the LDI GeoJson to Wkt building block . ",
+    "content": "Apache Nifi processor name: GeoJsonToWKTProcessor . The GeoJson to Wkt Transformer will transform any GeoJson statements (with predicate https://purl.org/geojson/vocab#geometry) to a WKT string. For example: . { \"https://purl.org/geojson/vocab#geojson:geometry\": { \"@type\": \"Point\", \"https://purl.org/geojson/vocab#geojson:coordinates\": [100.0, 0.0] } } . becomes: . { \"http://www.w3.org/ns/locn#geometry\": { \"@value\": \"POINT (100 0)\", \"@type\": \"http://www.opengis.net/ont/geosparql#wktLiteral\" } } . ",
     "url": "/ldi-nifi/processors/ldio-geojson-to-wkt#apache-nifi-geojson-to-wkt-transformer",
     
     "relUrl": "/ldi-nifi/processors/ldio-geojson-to-wkt#apache-nifi-geojson-to-wkt-transformer"
-  },"138": {
+  },"137": {
     "doc": "GeoJson To WKT Transformer",
     "title": "Config",
     "content": "This component has no required config . ",
     "url": "/ldi-nifi/processors/ldio-geojson-to-wkt#config",
     
     "relUrl": "/ldi-nifi/processors/ldio-geojson-to-wkt#config"
-  },"139": {
+  },"138": {
     "doc": "GeoJson To WKT Transformer",
     "title": "GeoJson To WKT Transformer",
     "content": " ",
     "url": "/ldi-nifi/processors/ldio-geojson-to-wkt",
     
     "relUrl": "/ldi-nifi/processors/ldio-geojson-to-wkt"
-  },"140": {
+  },"139": {
     "doc": "LDES Client",
     "title": "Apache Nifi Ldes Client",
     "content": "Apache Nifi processor name: LDESClientProcessor . The LDES Client contains the functionality to replicate and synchronise an LDES, and to persist its state for that process. This is achieved by configuring the processor with an initial fragment URL. When the processor is triggered, the fragment will be processed, and all relations will be added to the (non-persisted) queue. As long as the processor runs, a queue that accepts new fragments to process is maintained. The processor also keeps track of the mutable and immutable fragments already processed. It will be ignored when an attempt is made to queue a known immutable fragment. Fragments in the mutable fragment store will be queued when they’re expired. Should a fragment be processed from a stream that does not set the max-age in the Cache-control header, a default expiration interval will be used to set an expiration date on the fragment. Processed members of mutable fragments are also kept in state. They are ignored if presented more than once. Within a fragment, members can be ordered based on a timestamp. The path to this timestamp has to be configured. If this path is missing, the members are ordered randomly. graph LR L[LDES] --&gt; H[LDES Client] H --&gt; S[...] subgraph Apache Nifi input pipeline H end . ",
     "url": "/ldi-nifi/processors/ldio-ldes-client#apache-nifi-ldes-client",
     
     "relUrl": "/ldi-nifi/processors/ldio-ldes-client#apache-nifi-ldes-client"
-  },"141": {
+  },"140": {
     "doc": "LDES Client",
     "title": "Config",
-    "content": "| Property | Description | Required | Default | Example | Supported values | . | url | The url of the LDES server | Yes | N/A | http://localhost:8080/my-ldes | HTTP and HTTPS urls | . | source-format | The ‘Content-Type’ that should be requested to the server. | No | application/ld+json | application/n-quads | Any type supported by Apache Jena | . | state | ‘sqlite’, ‘memory’, ‘file’ or ‘postgres’ to indicate how the state should be persisted. | No | memory | sqlite | ‘sqlite’, ‘files’ or ‘memory’ | . | keep-state | Indicates if the state should be persisted on shutdown (n/a for in memory states) | No | false | false | true or false | . | timestamp-path | The property-path used to determine the timestamp on which the members will be ordered | No | N/A | http://www.w3.org/ns/prov#generatedAtTime | A property path | . | postgres.url | JDBC url of the Postgres database. | No | N/A | jdbc:postgresql://test.postgres.database.azure.com:5432/sample | String | . | postgres.username | Username used to connect to Postgres database. | No | N/A | myUsername@test | String | . | postgres.password | Password used to connect to Postgres database. | No | N/A | myPassword | String | . This component uses the “LDIO Http Requester” to make the HTTP request. Refer to LDIO Http Requester for the config. ",
+    "content": "| Property | Description | Required | Default | Example | Supported values | . | url | The url of the LDES server | Yes | N/A | http://localhost:8080/my-ldes | HTTP and HTTPS urls | . | Data source format | The ‘Content-Type’ of the LDES | No | application/ld+json | application/n-quads | Any type supported by Apache Jena | . | Data destination format | The ‘Content-Type’ that should be requested to the server | No | application/ld+json | application/n-quads | Any type supported by Apache Jena | . | state | ‘sqlite’, ‘memory’, ‘file’ or ‘postgres’ to indicate how the state should be persisted. | No | memory | sqlite | ‘sqlite’, ‘files’ or ‘memory’ | . | keep-state | Indicates if the state should be persisted on shutdown (n/a for in memory states) | No | false | false | true or false | . | timestamp-path | The property-path used to determine the timestamp on which the members will be ordered | No | N/A | http://www.w3.org/ns/prov#generatedAtTime | A property path | . | postgres.url | JDBC url of the Postgres database. | No | N/A | jdbc:postgresql://test.postgres.database.azure.com:5432/sample | String | . | postgres.username | Username used to connect to Postgres database. | No | N/A | myUsername@test | String | . | postgres.password | Password used to connect to Postgres database. | No | N/A | myPassword | String | . This component uses the “LDIO Http Requester” to make the HTTP request. Refer to LDIO Http Requester for the config. ",
     "url": "/ldi-nifi/processors/ldio-ldes-client#config",
     
     "relUrl": "/ldi-nifi/processors/ldio-ldes-client#config"
-  },"142": {
+  },"141": {
     "doc": "LDES Client",
     "title": "Examples",
     "content": "input: name: be.vlaanderen.informatievlaanderen.ldes.ldi.client.LdioLdesClient config: url: http://localhost:8080/my-ldes sourceFormat: text/turtle retries: enabled: true auth: type: OAUTH2_CLIENT_CREDENTIALS client-id: clientId client-secret: secret token-endpoint: http://localhost:8000/token . input: name: be.vlaanderen.informatievlaanderen.ldes.ldi.client.LdioLdesClient config: url: http://localhost:8080/my-ldes sourceFormat: text/turtle retries: enabled: true state: postgres postgres: url: jdbc:postgresql://test.postgres.database.azure.com:5432/sample username: myUsername@test password: myPassword . ",
     "url": "/ldi-nifi/processors/ldio-ldes-client#examples",
     
     "relUrl": "/ldi-nifi/processors/ldio-ldes-client#examples"
-  },"143": {
+  },"142": {
     "doc": "LDES Client",
     "title": "LDES Client",
     "content": " ",
     "url": "/ldi-nifi/processors/ldio-ldes-client",
     
     "relUrl": "/ldi-nifi/processors/ldio-ldes-client"
-  },"144": {
+  },"143": {
     "doc": "NGSIv2 To LD Adapter",
     "title": "Apache Nifi NGSIv2 To LD Adapter",
     "content": "Apache Nifi processor name: NgsiV2ToLdProcessor . This adapter will transform a NGSI V2 input into NGSI LD. Jackson is used to first deserialize the input to java objects which can then be serialized to the LD format. The algorithm applies several deviations from the standard formats. These deviations are: 1. The observedAt attribute is added to every property, its value is determined by the dateObserved attribute of the input. 2. The timestamp attribute of a metadata property normally determines the observedAt property but is ignored in this algorithm. ",
     "url": "/ldi-nifi/processors/ldio-ngsiv2-to-ld#apache-nifi-ngsiv2-to-ld-adapter",
     
     "relUrl": "/ldi-nifi/processors/ldio-ngsiv2-to-ld#apache-nifi-ngsiv2-to-ld-adapter"
-  },"145": {
+  },"144": {
     "doc": "NGSIv2 To LD Adapter",
     "title": "Config",
     "content": "| Property | Description | Required | Default | Example | Supported values | . | core-context | URI of a core json-ld context. | Yes | N/A | http://example.com/my-api | HTTP and HTTPS urls | . | ld-context | URI of a custom json-ld context. | No | N/A | http://example.com/my-api | HTTP and HTTPS urls | . | data-identifier | Identifier that points to data in provided json. | Yes | N/A | data | String | . ",
     "url": "/ldi-nifi/processors/ldio-ngsiv2-to-ld#config",
     
     "relUrl": "/ldi-nifi/processors/ldio-ngsiv2-to-ld#config"
-  },"146": {
+  },"145": {
     "doc": "NGSIv2 To LD Adapter",
     "title": "NGSIv2 To LD Adapter",
     "content": " ",
     "url": "/ldi-nifi/processors/ldio-ngsiv2-to-ld",
     
     "relUrl": "/ldi-nifi/processors/ldio-ngsiv2-to-ld"
-  },"147": {
+  },"146": {
     "doc": "Repository Materialization",
     "title": "Apache Nifi Repository Materialiser",
     "content": "Apache Nifi processor name: RepositoryMaterialiserProcessor . The repository materialiser is used to materialise an LDES stream into a triplestore. Any triplestore that supports the RDF4J remote repository API can be used. ",
     "url": "/ldi-nifi/processors/ldio-repository-materialiser#apache-nifi-repository-materialiser",
     
     "relUrl": "/ldi-nifi/processors/ldio-repository-materialiser#apache-nifi-repository-materialiser"
-  },"148": {
+  },"147": {
     "doc": "Repository Materialization",
     "title": "Config",
     "content": "| Property | Description | Required | Default | Example | Supported values | . | sparql-host | The url of the server hosting the repository | Yes | N/A | http://repositoryServer | URL | . | repository-id | The rdf4j repository id | Yes | N/A | repoId | String | . | named-graph | The timestamp path used for naming the | No | N/A | http://name | Any valid LD subject name | . ",
     "url": "/ldi-nifi/processors/ldio-repository-materialiser#config",
     
     "relUrl": "/ldi-nifi/processors/ldio-repository-materialiser#config"
-  },"149": {
+  },"148": {
     "doc": "Repository Materialization",
     "title": "Repository Materialization",
     "content": " ",
     "url": "/ldi-nifi/processors/ldio-repository-materialiser",
     
     "relUrl": "/ldi-nifi/processors/ldio-repository-materialiser"
-  },"150": {
+  },"149": {
     "doc": "SPARQL Construct",
     "title": "Apache Nifi SPARQL Construct",
-    "content": "Apache Nifi processor name: SparqlConstructProcessor . An LDIO wrapper component for the LDI SPARQL Construct building block . ",
+    "content": "Apache Nifi processor name: SparqlConstructProcessor . graph LR L[LDES member] --&gt; H[SPARQL construct processor] H --&gt; S[filtered LDES member] subgraph Apache Nifi pipeline H end . The SPARQL Construct Transformer will modify the model based on the given SPARQL Construct Query. SPARQL Construct is a query language used in semantic Web technologies to create RDF (Resource Description Framework) graphs from existing RDF data. It allows users to specify a pattern of data they wish to extract from the RDF data and construct a new graph based on that pattern. The SPARQL Construct query language provides a powerful way to create new RDF data by using existing input. It can be used to transform RDF data into different formats and simplify the structure of RDF data by aggregating or filtering data. This SPARQL Construct Transformer building block can be used to execute model transformations. Splitting models using SPARQL Construct This component can be used to split models into multiple models using graphs. For example, the below query will create a dataset containing multiple models defined by ‘GRAPH’. The SPARQL construct component will extract all named models from the dataset and add all statements from the default model. The component will then return a collection of models. CONSTRUCT { GRAPH ?s { ?s ?p ?o } } WHERE { ?s ?p ?o } . ",
     "url": "/ldi-nifi/processors/ldio-sparql-construct#apache-nifi-sparql-construct",
     
     "relUrl": "/ldi-nifi/processors/ldio-sparql-construct#apache-nifi-sparql-construct"
-  },"151": {
+  },"150": {
     "doc": "SPARQL Construct",
     "title": "Config",
-    "content": "| Property | Description | Required | Default | Example | Supported values | . | query | Path to content of SPARQL Query/content of SPARQL query. | Yes | N/A | query.rq | Path/String | . | infer | Include original model in end result. | No | false | false | true or false | . ",
+    "content": "| Property | Description | Required | Default | Example | Supported values | . | query | Path to content of SPARQL Query/content of SPARQL query. | Yes | N/A | query.rq | Path/String | . | infer | Include original model in end result. | No | false | false | true or false | . | Data source format | data format of the input source | no | application/n-quads | application/n-quads | application/n-quads, application/json-ld, TRIPPLE | . ",
     "url": "/ldi-nifi/processors/ldio-sparql-construct#config",
     
     "relUrl": "/ldi-nifi/processors/ldio-sparql-construct#config"
-  },"152": {
+  },"151": {
     "doc": "SPARQL Construct",
     "title": "SPARQL Construct",
     "content": " ",
     "url": "/ldi-nifi/processors/ldio-sparql-construct",
     
     "relUrl": "/ldi-nifi/processors/ldio-sparql-construct"
-  },"153": {
+  },"152": {
     "doc": "SPARQL Construct",
     "title": "Apache Nifi Pipeline SPARQL Select Processor",
-    "content": "Apache Nifi processor name: SparqlSelectProcessor` . ",
+    "content": "Apache Nifi processor name: SparqlSelectProcessor` . graph LR L[LDES member] --&gt; H[SPARQL select processor] H --&gt; S[filtered LDES member] subgraph Apache Nifi pipeline H end . ",
     "url": "/ldi-nifi/processors/ldio-sparql-select#apache-nifi-pipeline-sparql-select-processor",
     
     "relUrl": "/ldi-nifi/processors/ldio-sparql-select#apache-nifi-pipeline-sparql-select-processor"
-  },"154": {
+  },"153": {
     "doc": "SPARQL Construct",
     "title": "Config",
     "content": "| Property | Description | Required | Default | Example | Supported values | . | SPARQL Select Query | Path to content of SPARQL Query/content of SPARQL select query. | Yes | N/A | query.rq | Path/String | . | Data source format | SPARQL Select Query | No | false | false | true or false | . query.rq: . SELECT {?subject ?predicate ?object} WHERE {?subject ?predicate ?object} . ",
     "url": "/ldi-nifi/processors/ldio-sparql-select#config",
     
     "relUrl": "/ldi-nifi/processors/ldio-sparql-select#config"
-  },"155": {
+  },"154": {
     "doc": "SPARQL Construct",
     "title": "SPARQL Construct",
     "content": " ",
     "url": "/ldi-nifi/processors/ldio-sparql-select",
     
     "relUrl": "/ldi-nifi/processors/ldio-sparql-select"
-  },"156": {
+  },"155": {
     "doc": "Version Materializer",
     "title": "Apache Nifi Version Materializer",
     "content": "Apache Nifi processor name: VersionMaterializerProcessor` . The Version Materializer will transform a Version Object into a State Object. ",
     "url": "/ldi-nifi/processors/ldio-version-materializer#apache-nifi-version-materializer",
     
     "relUrl": "/ldi-nifi/processors/ldio-version-materializer#apache-nifi-version-materializer"
-  },"157": {
+  },"156": {
     "doc": "Version Materializer",
     "title": "Config",
     "content": "| Property | Description | Required | Default | Example | Supported values | . | versionOf-property | Property that points to the versionOfPath. | Yes | N/A | “http://purl.org/dc/terms/isVersionOf” | String | . | restrict-to-members | Builds a model limited to statements about the ldes:member, including potential nested blank nodes. Excludes statements about referenced entities, provided as context | No | false | false | true or false | . ",
     "url": "/ldi-nifi/processors/ldio-version-materializer#config",
     
     "relUrl": "/ldi-nifi/processors/ldio-version-materializer#config"
-  },"158": {
+  },"157": {
     "doc": "Version Materializer",
     "title": "Version Materializer",
     "content": " ",
     "url": "/ldi-nifi/processors/ldio-version-materializer",
     
     "relUrl": "/ldi-nifi/processors/ldio-version-materializer"
-  },"159": {
+  },"158": {
     "doc": "Version Object Creator",
     "title": "Apache Nifi Version Object Creator",
     "content": "Apache Nifi processor name: VersionObjectCreatorProcessor` . The Version Object Creator will transform a State Object to a Version Object. ",
     "url": "/ldi-nifi/processors/ldio-version-object-creator#apache-nifi-version-object-creator",
     
     "relUrl": "/ldi-nifi/processors/ldio-version-object-creator#apache-nifi-version-object-creator"
-  },"160": {
+  },"159": {
     "doc": "Version Object Creator",
     "title": "Config",
     "content": "| Property | Description | Required | Default | Example | Supported values | . | date-observed-property | Property path (IRI format ‘&lt;&gt;’) that points to a literal which should be used as timestampPath. Defaults to current timestamp. | No | Current Timestamp | https://uri.etsi.org/ngsi-ld/default-context/WaterQualityObserved | String | . | member-type | Defines the RDF type of the version object | No | N/A | https://uri.etsi.org/ngsi-ld/default-context/Device | String | . | delimiter | Defines how the version object id will be constructed. (versionOf + delimiter + dateObserved) | No | / | / | String | . | generatedAt-property | If defined, a statement will be added to the model with the observedAt value and the given property. | No | N/A | http://www.w3.org/ns/prov#generatedAtTime | String | . | versionOf-property | If defined, a statement will be added to the model with the versionOf value and the given property. | No | N/A | http://purl.org/dc/terms/isVersionOf | String | . A property path can be provided for the date-observed-property. For example for the following ttl: . @prefix time: &lt;http://www.w3.org/2006/time#&gt; . @prefix ex: &lt;http://example.org/&gt; . @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; . ex:member a ex:Something ; ex:created [ a time:Instant ; time:inXSDDateTimeStamp \"2023-08-18T13:08:00+01:00\"^^xsd:DateTime ] . You can provide the following date-observed-property: “http://example.org/created/http://www.w3.org/2006/time#inXSDDateTimeStamp” to select “time:inXSDDateTimeStamp” within “ex:created”. ",
     "url": "/ldi-nifi/processors/ldio-version-object-creator#config",
     
     "relUrl": "/ldi-nifi/processors/ldio-version-object-creator#config"
-  },"161": {
+  },"160": {
     "doc": "Version Object Creator",
     "title": "Version Object Creator",
     "content": " ",
     "url": "/ldi-nifi/processors/ldio-version-object-creator",
     
     "relUrl": "/ldi-nifi/processors/ldio-version-object-creator"
-  },"162": {
+  },"161": {
     "doc": "Model Split Processor",
     "title": "Apache Nifi Model Split Processor",
     "content": ". Apache Nifi processor name: VersionObjectCreatorProcessor` . ",
     "url": "/ldi-nifi/processors/model_split_processor#apache-nifi-model-split-processor",
     
     "relUrl": "/ldi-nifi/processors/model_split_processor#apache-nifi-model-split-processor"
-  },"163": {
+  },"162": {
     "doc": "Model Split Processor",
     "title": "Model Split Processor",
     "content": " ",
     "url": "/ldi-nifi/processors/model_split_processor",
     
     "relUrl": "/ldi-nifi/processors/model_split_processor"
-  },"164": {
+  },"163": {
     "doc": "SPARQL Pipeline Processors",
     "title": "SPARQL Interactions Processors",
     "content": "The SPARQL Interactions Processors is a bundle of the LDI SPARQL Construct and also a SPARQL SELECT Processor. The SPARQL SELECT provides the option to query your dataset. ",
     "url": "/ldi-nifi/processors/sparql-interactions#sparql-interactions-processors",
     
     "relUrl": "/ldi-nifi/processors/sparql-interactions#sparql-interactions-processors"
-  },"165": {
+  },"164": {
     "doc": "SPARQL Pipeline Processors",
     "title": "SPARQL Pipeline Processors",
     "content": " ",
     "url": "/ldi-nifi/processors/sparql-interactions",
     
     "relUrl": "/ldi-nifi/processors/sparql-interactions"
-  },"166": {
+  },"165": {
     "doc": "Introduction",
     "title": "Building blocks",
     "content": "As the LDI strives to be an easily reusable project, each of our building blocks are framework independent and is being maintained as part in our LDI Core. Each of the LDI Core Building Blocks falls under one of four categories: . | LDI Input: A component that will receive data (not necessarily LD) to then feed the LDI pipeline. | LDI Adapter: To be used in conjunction with the LDI Input, the LDI Adapter will transform the provided content into and internal Linked Data model and sends it down the pipeline. | LDI Transformer: A component that takes in a Linked Data model, transforms/modifies it and then puts it back on the pipeline. | LDI Output: A component that will take in Linked Data and will export it to external sources. | . stateDiagram-v2 direction LR [*] --&gt; LDI_Input LDI_Input --&gt; LDI_Transformer : LD LDI_Transformer --&gt; LDI_Output : LD LDI_Output --&gt; [*] state LDI_Input { direction LR [*] --&gt; LDI_Adapter : Non LD state LDI_Adapter { direction LR [*] --&gt; adapt adapt --&gt; [*] } LDI_Adapter --&gt; [*] : LD } state LDI_Transformer { direction LR [*] --&gt; transform transform --&gt; [*] } state LDI_Output { direction LR [*] --&gt; [*] } . ",
     "url": "/core/index#building-blocks",
     
     "relUrl": "/core/index#building-blocks"
-  },"167": {
+  },"166": {
     "doc": "Introduction",
     "title": "Introduction",
     "content": " ",
     "url": "/core/index",
     
     "relUrl": "/core/index"
-  },"168": {
+  },"167": {
     "doc": "LD Pipeline Adapters",
     "title": "Linked Data Pipeline Adapters",
     "content": "The LDI Adapter is a component to be used in conjunction with the LDI Input, the LDI Adapter will transform the provided content into and internal Linked Data model and sends it down the pipeline. ",
     "url": "/core/ldi-adapters/index#linked-data-pipeline-adapters",
     
     "relUrl": "/core/ldi-adapters/index#linked-data-pipeline-adapters"
-  },"169": {
+  },"168": {
     "doc": "LD Pipeline Adapters",
     "title": "LD Pipeline Adapters",
     "content": " ",
     "url": "/core/ldi-adapters/index",
     
     "relUrl": "/core/ldi-adapters/index"
-  },"170": {
+  },"169": {
     "doc": "Json to Json-LD Adapter",
     "title": "Json to Json-LD Adapter",
     "content": "The json-to-ld-adapter receives json messages and adds a linked data context to transform the messages to json-ld. ",
     "url": "/core/ldi-adapters/json-to-json-ld",
     
     "relUrl": "/core/ldi-adapters/json-to-json-ld"
-  },"171": {
+  },"170": {
     "doc": "NGSI V2 to LD Adapter",
     "title": "NGSI v2 to LD Adapter",
     "content": "This adapter will transform a NGSI V2 input into NGSI LD. Jackson is used to first deserialize the input to java objects which can then be serialized to the LD format. ",
     "url": "/core/ldi-adapters/ngsiv2-to-ld#ngsi-v2-to-ld-adapter",
     
     "relUrl": "/core/ldi-adapters/ngsiv2-to-ld#ngsi-v2-to-ld-adapter"
-  },"172": {
+  },"171": {
     "doc": "NGSI V2 to LD Adapter",
     "title": "Notes",
     "content": "The algorithm applies several deviations from the standard formats. These deviations are: . | The observedAt attribute is added to every property, its value is determined by the dateObserved attribute of the input. | The timestamp attribute of a metadata property normally determines the observedAt property but is ignored in this algorithm. | . ",
     "url": "/core/ldi-adapters/ngsiv2-to-ld#notes",
     
     "relUrl": "/core/ldi-adapters/ngsiv2-to-ld#notes"
-  },"173": {
+  },"172": {
     "doc": "NGSI V2 to LD Adapter",
     "title": "NGSI V2 to LD Adapter",
     "content": " ",
     "url": "/core/ldi-adapters/ngsiv2-to-ld",
     
     "relUrl": "/core/ldi-adapters/ngsiv2-to-ld"
-  },"174": {
+  },"173": {
     "doc": "RDF Adapter",
     "title": "RDF Adapter",
     "content": "As the most basic Adapter of the LDI Core Building Blocks, the RDF Adapter will take in an RDF string and convert it into an internal Linked Data model. ",
     "url": "/core/ldi-adapters/rdf-adapter",
     
     "relUrl": "/core/ldi-adapters/rdf-adapter"
-  },"175": {
+  },"174": {
     "doc": "RDF Adapter",
     "title": "Notes",
     "content": "This Adapter only supports valid RDF mime types . ",
     "url": "/core/ldi-adapters/rdf-adapter#notes",
     
     "relUrl": "/core/ldi-adapters/rdf-adapter#notes"
-  },"176": {
+  },"175": {
     "doc": "RML Adapter",
     "title": "RML Adapter",
     "content": "The RML Adapter allows a user to transform a non-LD object (json/CSV/XML) to an RDF object. This is done by providing a RML mapping file. However, as RML is written in RDF, it can be challenging for a new user to create a new mapping. That’s where YARRRML comes into play. Along with the online editor [Matey], it’s easy to build one’s own mapping and then export it into RML. ",
     "url": "/core/ldi-adapters/rml-adapter",
     
     "relUrl": "/core/ldi-adapters/rml-adapter"
-  },"177": {
+  },"176": {
     "doc": "File archiving",
     "title": "Archive File In",
     "content": "The Archive File In is used to read the models from a file archive created by the Archive File Out component. This component traverses all directories in the archive in lexical order and reads the members in lexical order as well. Example expected structure: . | archive . | 2022 . | 01 . | 01 . | member-1.nq | member-2.nq | … | . | 02 . | member-122.nq | … | . | . | . | . | . ",
     "url": "/core/ldi-inputs/file-archiving#archive-file-in",
     
     "relUrl": "/core/ldi-inputs/file-archiving#archive-file-in"
-  },"178": {
+  },"177": {
     "doc": "File archiving",
     "title": "Config",
     "content": "| Property | Description | Required | Default | Example | Supported values | . | archive-root-dir | The root directory of the archive | Yes | N/A | /parcels/archive | Linux (+ Mac) and Windows paths | . | source-format | The source format of the files | No | Deduced from file extension | text/turtle | Any Jena supported format | . ",
     "url": "/core/ldi-inputs/file-archiving#config",
     
     "relUrl": "/core/ldi-inputs/file-archiving#config"
-  },"179": {
+  },"178": {
     "doc": "File archiving",
     "title": "Example",
     "content": "A complete demo of the archiving functionality with both LDIO and NiFi can be found in the E2E repo . The traversal order is lexical, this means that 1, 2, 3, …, 9 should have leading zeroes. 03 will be read before 10 but 3 will be read after 10. Not all file extensions can be deduced automatically. Extensions like .ttl and .nq work fine and don’t need a source-format specified. When using LD+JSON, you will need to specify the source-format. ",
     "url": "/core/ldi-inputs/file-archiving#example",
     
     "relUrl": "/core/ldi-inputs/file-archiving#example"
-  },"180": {
+  },"179": {
     "doc": "File archiving",
     "title": "File archiving",
     "content": " ",
     "url": "/core/ldi-inputs/file-archiving",
     
     "relUrl": "/core/ldi-inputs/file-archiving"
-  },"181": {
+  },"180": {
     "doc": "LD Pipeline Inputs",
     "title": "Linked Data pipeline Inputs",
     "content": "The LDI Input is a component that will receive data (not necessarily LD) to then feed the LDI pipeline. ",
     "url": "/core/ldi-inputs/index#linked-data-pipeline-inputs",
     
     "relUrl": "/core/ldi-inputs/index#linked-data-pipeline-inputs"
-  },"182": {
+  },"181": {
     "doc": "LD Pipeline Inputs",
     "title": "LD Pipeline Inputs",
     "content": " ",
     "url": "/core/ldi-inputs/index",
     
     "relUrl": "/core/ldi-inputs/index"
-  },"183": {
+  },"182": {
     "doc": "LDES Client",
     "title": "Ldes Client",
     "content": "The LDES Client contains the functionality to replicate and synchornise an LDES, and to persist its state for that process. More information on the functionalites can be found here. This is achieved by configuring the processor with an initial fragment URL. When the processor is triggered, the fragment will be processed, and all relations will be added to the (non-persisted) queue. As long as the processor runs, a queue that accepts new fragments to process is maintained. The processor also keeps track of the mutable and immutable fragments already processed. It will be ignored when an attempt is made to queue a known immutable fragment. Fragments in the mutable fragment store will be queued when they’re expired. Should a fragment be processed from a stream that does not set the max-age in the Cache-control header, a default expiration interval will be used to set an expiration date on the fragment. Processed members of mutable fragments are also kept in state. They are ignored if presented more than once. Within a fragment, members can be ordered based on a timestamp. The path to this timestamp has to be configured. If this path is missing, the members are ordered randomly. ",
     "url": "/core/ldi-inputs/ldes-client#ldes-client",
     
     "relUrl": "/core/ldi-inputs/ldes-client#ldes-client"
-  },"184": {
+  },"183": {
     "doc": "LDES Client",
     "title": "LDES Client",
     "content": " ",
     "url": "/core/ldi-inputs/ldes-client",
     
     "relUrl": "/core/ldi-inputs/ldes-client"
-  },"185": {
+  },"184": {
     "doc": "File archiving",
     "title": "Archive File Out",
     "content": "The Archive File Out is used to write models to files based on a timestamp path property on the model. Every file is written to NQuads with the extracted timestamp as name: 2023-11-21-05-05-00-000000000.nq When two files have the same name, a sequence nr is added, for example: 2023-11-21-05-05-00-000000000-2.nq . The files are ordered in directories based on the date. For every day, there is one directory. For example: 2023-11-21-05-05-00-000000000.nq will be located at archive-root-dir/2023/11/21. ",
     "url": "/core/ldi-outputs/file-archiving#archive-file-out",
     
     "relUrl": "/core/ldi-outputs/file-archiving#archive-file-out"
-  },"186": {
+  },"185": {
     "doc": "File archiving",
     "title": "Config",
     "content": "| Property | Description | Required | Default | Example | Supported values | . | archive-root-dir | The root directory where files are written to | Yes | N/A | /parcels/archive | Linux (+ Mac) and Windows paths | . | timestamp-path | The timestamp path used for naming the | Yes | N/A | http://www.w3.org/ns/prov#generatedAtTime | Any valid LD predicate | . ",
     "url": "/core/ldi-outputs/file-archiving#config",
     
     "relUrl": "/core/ldi-outputs/file-archiving#config"
-  },"187": {
+  },"186": {
     "doc": "File archiving",
     "title": "Example",
     "content": "A complete demo of the archiving functionality with both LDIO and NiFi can be found in the E2E repo . Only LD streams that contain a timestamp-path can be archived with these components . ",
     "url": "/core/ldi-outputs/file-archiving#example",
     
     "relUrl": "/core/ldi-outputs/file-archiving#example"
-  },"188": {
+  },"187": {
     "doc": "File archiving",
     "title": "File archiving",
     "content": " ",
     "url": "/core/ldi-outputs/file-archiving",
     
     "relUrl": "/core/ldi-outputs/file-archiving"
-  },"189": {
+  },"188": {
     "doc": "LD Pipeline Outputs",
     "title": "Linked Data pipeline Outputs",
     "content": "The LDI Output is a component that will take in Linked Data and will export it to external sources. ",
     "url": "/core/ldi-outputs/index#linked-data-pipeline-outputs",
     
     "relUrl": "/core/ldi-outputs/index#linked-data-pipeline-outputs"
-  },"190": {
+  },"189": {
     "doc": "LD Pipeline Outputs",
     "title": "LD Pipeline Outputs",
     "content": " ",
     "url": "/core/ldi-outputs/index",
     
     "relUrl": "/core/ldi-outputs/index"
-  },"191": {
+  },"190": {
     "doc": "Repository Materialization",
     "title": "Repository Materialiser",
     "content": "The repository materialiser is used to materialise an LDES stream into a triplestore. Any triplestore that supports the RDF4J remote repository API can be used. ",
     "url": "/core/ldi-outputs/repository-materialiser#repository-materialiser",
     
     "relUrl": "/core/ldi-outputs/repository-materialiser#repository-materialiser"
-  },"192": {
+  },"191": {
     "doc": "Repository Materialization",
     "title": "Repository Materialization",
     "content": " ",
     "url": "/core/ldi-outputs/repository-materialiser",
     
     "relUrl": "/core/ldi-outputs/repository-materialiser"
-  },"193": {
+  },"192": {
     "doc": "GeoJson to Wkt Transformer",
     "title": "GeoJson to Wkt Transformer",
     "content": "The GeoJson to Wkt Transformer will transform any GeoJson statements (with predicate https://purl.org/geojson/vocab#geometry) to a wkt string. For example: . { \"https://purl.org/geojson/vocab#geojson:geometry\": { \"@type\": \"Point\", \"https://purl.org/geojson/vocab#geojson:coordinates\": [100.0, 0.0] } } . becomes: . { \"http://www.w3.org/ns/locn#geometry\": { \"@value\": \"POINT (100 0)\", \"@type\": \"http://www.opengis.net/ont/geosparql#wktLiteral\" } } . ",
     "url": "/core/ldi-transformers/geojson-to-wkt",
     
     "relUrl": "/core/ldi-transformers/geojson-to-wkt"
-  },"194": {
+  },"193": {
     "doc": "LD Pipeline Transformers",
     "title": "Linked Data pipeline Transformers",
     "content": "The LDI Transformer is a component that takes in a Linked Data model, transforms/modifies it and then puts it back on the pipeline. ",
     "url": "/core/ldi-transformers/index#linked-data-pipeline-transformers",
     
     "relUrl": "/core/ldi-transformers/index#linked-data-pipeline-transformers"
-  },"195": {
+  },"194": {
     "doc": "LD Pipeline Transformers",
     "title": "LD Pipeline Transformers",
     "content": " ",
     "url": "/core/ldi-transformers/index",
     
     "relUrl": "/core/ldi-transformers/index"
-  },"196": {
+  },"195": {
     "doc": "SPARQL Construct Transformer",
     "title": "SPARQL Construct Transformer",
     "content": "The SPARQL Construct Transformer will modify the model based on the given SPARQL Construct Query. SPARQL Construct is a query language used in semantic Web technologies to create RDF (Resource Description Framework) graphs from existing RDF data. It allows users to specify a pattern of data they wish to extract from the RDF data and construct a new graph based on that pattern. The SPARQL Construct query language provides a powerful way to create new RDF data by using existing data as the input. It can be used to transform RDF data into different formats, as well as to simplify the structure of RDF data by aggregating or filtering data. This SPARQL Construct Transfomer building block can be used to execute model transformations. ",
     "url": "/core/ldi-transformers/sparql-construct",
     
     "relUrl": "/core/ldi-transformers/sparql-construct"
-  },"197": {
+  },"196": {
     "doc": "SPARQL Construct Transformer",
     "title": "Splitting models using SPARQL Construct",
     "content": "This component can be used to split models into multiple models using graphs. For example, the below query will create a dataset containing multiple models defined by ‘GRAPH’. The SPARQL construct component will extract all named models from the dataset and add all statements from the default model. The component will then return a collection of models. CONSTRUCT { GRAPH ?s { ?s ?p ?o } } WHERE { ?s ?p ?o } . ",
     "url": "/core/ldi-transformers/sparql-construct#splitting-models-using-sparql-construct",
     
     "relUrl": "/core/ldi-transformers/sparql-construct#splitting-models-using-sparql-construct"
-  },"198": {
+  },"197": {
     "doc": "SPARQL Construct Transformer",
     "title": "SPARQL functions",
     "content": "We support some additional geo functions that can call inside your SPARQL Construct query, . with the following namespace: . prefix geoc: https://opengis.net/def/function/geosparql/custom# . | Function | Description | Input | Output | . | geoc:lineAtIndex | get LineString from MultiLineString by index. | MultiLineString(wktLiteral) &amp; index | LineString(wktLiteral) | . | geoc:firstCoordinate | get first Coordinate of LineString. | LineString(wktLiteral) | Coordinate(wktLiteral) | . | geoc:lastCoordinate | get last Coordinate of LineString. | LineString(wktLiteral) | Coordinate(wktLiteral) | . | geoc:lineLength | calculate total line length of LineString. | LineString(wktLiteral) | distance in meters | . | geoc:midPoint | calculate midpoint of LineString. | LineString(wktLiteral) | Coordinate(wktLiteral) | . | geoc:pointAtFromStart | calculate point on LineString by distance. | LineString(wktLiteral) &amp; distance in meters | Coordinate(wktLiteral) | . |   |   |   |   | . ",
     "url": "/core/ldi-transformers/sparql-construct#sparql-functions",
     
     "relUrl": "/core/ldi-transformers/sparql-construct#sparql-functions"
-  },"199": {
+  },"198": {
     "doc": "Version Materializer",
     "title": "Version Materializer",
     "content": "The Version Materializer will transform a Version Object to a State Object. ",
     "url": "/core/ldi-transformers/version-materializer",
     
     "relUrl": "/core/ldi-transformers/version-materializer"
-  },"200": {
+  },"199": {
     "doc": "Version Object Creator",
     "title": "Version Object Creator",
     "content": "The Version Object Creator will transform a State Object to a Version Object. ",

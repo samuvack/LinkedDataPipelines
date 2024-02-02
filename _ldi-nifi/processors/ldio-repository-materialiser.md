@@ -9,6 +9,8 @@ nav_order: 2
 
 <b>Apache Nifi processor name:</b> <i>```RepositoryMaterialiserProcessor```</i>
 
+<br>
+
 ![Alt text](image-5.png)
 
 The repository materialiser is used to materialise an LDES stream into a triplestore.

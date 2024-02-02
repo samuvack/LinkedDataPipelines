@@ -9,6 +9,8 @@ nav_order: 5
 
 <b>Apache Nifi processor name:</b> <i>```ArchiveFileInProcessor```</i>
 
+<br>
+
 ![Alt text](image-1.png)
 
 The Archive File In is used to read the models from a file archive created by the [Archive File Out component](../ldi-outputs/file-archiving.md).

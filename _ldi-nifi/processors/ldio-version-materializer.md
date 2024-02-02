@@ -8,6 +8,8 @@ title: Version Materializer
 
 <b>Apache Nifi processor name:</b> <i>``VersionMaterializerProcessor```</i>
 
+<br>
+
 ![Alt text](image.png)
 
 The Version Materializer will transform a Version Object into a State Object.

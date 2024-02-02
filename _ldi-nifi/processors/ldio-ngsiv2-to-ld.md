@@ -9,6 +9,7 @@ nav_order: 1
 
 <b>Apache Nifi processor name:</b> <i>```NgsiV2ToLdProcessor```</i>
 
+<br>
 
 ![Alt text](image-4.png)
 
